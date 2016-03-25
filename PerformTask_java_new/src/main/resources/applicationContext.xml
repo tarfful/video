@@ -11,7 +11,7 @@
 	<context:property-placeholder location="classpath:perform.properties" />
 
 	<context:annotation-config />
-	
+
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.SingleConnectionDataSource">
 		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
@@ -37,15 +37,16 @@
 
 	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
 		<description>
-			Template is configured with session factory defined in the main web app
+			Template is configured with session factory defined in
+			the main web app
 		</description>
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
+
 	<!-- Runner -->
 	<bean id="videoProcessor" class="com.performgroup.interview.cmd.VideoProcessor">
 		<property name="videoService" ref="videoService" />
-		<property name="videoIngestFolder" value="${videoIngest.folder}"/>
+		<property name="videoIngestFolder" value="${videoIngest.folder}" />
 	</bean>
 
 	<!-- Data Access Objects -->
@@ -53,8 +54,15 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<!-- Services  -->
+	<!-- Services -->
 	<bean id="videoService"
 		class="com.performgroup.interview.service.impl.VideoServiceImpl" />
 
+	<bean id="jaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="classesToBeBound">
+			<list>
+				<value>com.performgroup.interview.xml.Video</value>
+			</list>
+		</property>
+	</bean>
 </beans>
