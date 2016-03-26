@@ -54,6 +54,10 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
+	<bean id="videoReportingJDBCDAO" class="com.performgroup.interview.dao.VideoReportingJDBCDAO">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
 	<!-- Services -->
 	<bean id="videoService"
 		class="com.performgroup.interview.service.impl.VideoServiceImpl" />
