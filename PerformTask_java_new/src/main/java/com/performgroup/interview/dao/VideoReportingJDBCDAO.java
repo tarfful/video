@@ -22,6 +22,7 @@ public class VideoReportingJDBCDAO implements VideoReportingDAO {
 
 	private JdbcTemplate jdbcTemplate;
 
+	@SuppressWarnings("unchecked")
 	public Collection<VideoReportingBean> countByDay() {
 		List<VideoReportingBean> report = jdbcTemplate.query(
 				"SELECT count(creation_date) as \"count\", "
@@ -31,6 +32,7 @@ public class VideoReportingJDBCDAO implements VideoReportingDAO {
 		return report;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<VideoReportingBean> countByVideoType() {
 		List<VideoReportingBean> report = jdbcTemplate.query(
 				"SELECT count(video_type) as \"count\", video_type as description FROM video GROUP BY video_type",

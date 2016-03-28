@@ -1,0 +1,5 @@
+1) Unit Tests,
+2) Code coverage 100% (TestNG or JUnit),
+3) Convert to SpringBoot,
+4) Eclipselink instead of Hibernate?
+5) VideoReportingBeanRowMapper (BeanPropertyRowMapper instead) ?
